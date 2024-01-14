@@ -8,9 +8,7 @@ class ResponseCategory {
 
   Future<List<ProductItem>> getRespons(idCa) async {
     final response = await Dio().get(
-      'https://galatexclub.ru/bitrix/catalog_export/export_$idCa.xml',
-      //https://galatexclub.ru/bitrix/catalog_export/export_bc4.xml
-      //https://galatexclub.ru/bitrix/catalog_export/export_sholk.xml
+      'https://',
     );
     //
     final document = xml.XmlDocument.parse(response.data.toString());
