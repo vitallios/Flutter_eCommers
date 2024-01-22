@@ -3,7 +3,7 @@ import 'package:flutter_1/modules/product.dart';
 import 'package:xml/xml.dart' as xml;
 
 class ResponseCategory {
-  // final globalUrl = 'https://galatexclub.ru/bitrix/catalog_export';
+
   // final idCatalog = 'x06';
 
   Future<List<ProductItem>> getRespons(idCa) async {
