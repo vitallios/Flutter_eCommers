@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_1/pages/home_page.dart';
-
-import 'pages/product_list.dart';
+import 'pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,16 +10,14 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       routes: {
         '/': (context) => const HomePage(),
-        '/category': (context) => const ProductList(),
       },
     );
   }

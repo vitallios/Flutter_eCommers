@@ -1,14 +1,13 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_1/modules/product.dart';
 import 'package:xml/xml.dart' as xml;
 
+import '../modules/product_item.dart';
+
 class ResponseCategory {
-
-  // final idCatalog = 'x06';
-
+  // final ListProduct = [];
   Future<List<ProductItem>> getRespons(idCa) async {
     final response = await Dio().get(
-      'https://',
+      'https://galatexclub.ru/bitrix/catalog_export/export_$idCa.xml',
     );
     //
     final document = xml.XmlDocument.parse(response.data.toString());
@@ -26,9 +25,14 @@ class ResponseCategory {
             price: e.findElements('price').first.innerText.toString(),
             paramColor:
                 e.findElements('param').elementAt(1).innerText.toString(),
+            count: double.parse(e.findElements('count').first.innerText),
+            countSum: "0.5",
           ),
         )
         .toList();
+
+    // ListProduct.add(employeeOffer);
+
     return employeeOffer;
   }
 }
