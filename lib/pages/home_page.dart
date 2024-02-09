@@ -45,11 +45,6 @@ class CategoryList extends StatelessWidget {
           title: Text('${catItem[i]['name']}'),
           trailing: const Icon(Icons.arrow_forward_ios),
           onTap: () {
-            // Navigator.of(context).pushNamed(
-            //   '/category',
-            //   // передаем значение выбранной категории
-            //   arguments: '${catItem[i]['id']}',
-            // );
             Navigator.push(
               context,
               MaterialPageRoute(

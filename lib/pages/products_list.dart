@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gtc/modules/product_counter.dart';
 import 'package:gtc/modules/product_item.dart';
 import 'package:gtc/pages/product_details.dart';
 
@@ -64,6 +65,7 @@ class _ProductListState extends State<ProductList> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           //
+
                           // Заголовок
                           Expanded(
                             flex: 1,
@@ -77,6 +79,9 @@ class _ProductListState extends State<ProductList> {
                               ),
                             ),
                           ),
+                          //
+                          const SizedBox(height: 10),
+
                           // картинка
                           Expanded(
                             flex: 2,
@@ -87,8 +92,8 @@ class _ProductListState extends State<ProductList> {
                             ),
                           ),
                           // Описание товара
+                          const SizedBox(height: 10),
                           Expanded(
-                            flex: 2,
                             child: Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 10),
@@ -111,15 +116,16 @@ class _ProductListState extends State<ProductList> {
                                       Text('${_productInfo![index].count}')
                                     ],
                                   ),
-                                  Couner(
-                                    item: _productInfo![index].count,
-                                    min: 0.5,
-                                    max: _productInfo![index].count,
-                                  ),
+                                  // const SizedBox(height: 20),
                                 ],
                               ),
                             ),
                           ),
+                          Expanded(
+                            child: Couner(
+                              item: _productInfo![index].count,
+                            ),
+                          )
                           //
                         ],
                       ),
@@ -147,103 +153,3 @@ class _ProductListState extends State<ProductList> {
 
 //
 
-class Couner extends StatefulWidget {
-  final double min;
-  final double max;
-  final double item;
-  const Couner({
-    super.key,
-    required this.min,
-    required this.max,
-    required this.item,
-  });
-
-  @override
-  State<Couner> createState() => _CounerState();
-}
-
-class _CounerState extends State<Couner> {
-  double value = 0.5;
-  String countKol = '0.5';
-
-  void add() {
-    setState(() {
-      if (value >= 0.5) {
-        value = value + 0.1;
-        countKol = value.toStringAsFixed(1);
-      } else {
-        value = 0.5;
-      }
-    });
-  }
-
-  void remove() {
-    setState(() {
-      if (value <= 0.5) {
-        value = 0.5;
-      } else {
-        value = value - 0.1;
-        countKol = value.toStringAsFixed(1);
-      }
-      // value = value - 0.1;
-      // countKol = value.toStringAsFixed(1);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Expanded(
-            child: SizedBox(
-          width: 10,
-          height: 40,
-          child: FloatingActionButton(
-            onPressed: () {
-              add();
-            },
-            child: const Icon(Icons.add),
-          ),
-        )),
-        //
-        Expanded(
-          child: Center(child: Text(countKol)),
-        ),
-        //
-        Expanded(
-            child: SizedBox(
-          width: 10,
-          height: 40,
-          child: FloatingActionButton(
-            onPressed: () {
-              remove();
-            },
-            child: const Icon(Icons.remove),
-          ),
-        )),
-      ],
-    );
-  }
-}
-
-class AppBars extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
-
-  const AppBars({
-    super.key,
-    required this.title,
-  }) : _title = title;
-
-  final String _title;
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      title: Text(_title),
-    );
-  }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-}

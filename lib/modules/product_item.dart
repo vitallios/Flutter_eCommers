@@ -14,5 +14,5 @@ class ProductItem {
   final String paramColor;
   final String price;
   final double count;
-  final String countSum;
+  final double countSum;
 }

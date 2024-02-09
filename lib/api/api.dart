@@ -26,7 +26,7 @@ class ResponseCategory {
             paramColor:
                 e.findElements('param').elementAt(1).innerText.toString(),
             count: double.parse(e.findElements('count').first.innerText),
-            countSum: "0.5",
+            countSum: 0.5,
           ),
         )
         .toList();
