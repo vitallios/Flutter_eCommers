@@ -7,7 +7,7 @@ class ResponseCategory {
   // final ListProduct = [];
   Future<List<ProductItem>> getRespons(idCa) async {
     final response = await Dio().get(
-      'https://galatexclub.ru/bitrix/catalog_export/export_$idCa.xml',
+  
     );
     //
     final document = xml.XmlDocument.parse(response.data.toString());
