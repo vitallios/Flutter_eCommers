@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+<<<<<<< Updated upstream
 import 'package:gtc/modules/product_counter.dart';
 import 'package:gtc/modules/product_item.dart';
 import 'package:gtc/pages/product_details.dart';
+=======
+import 'package:flutter_1/modules/product_item.dart';
+import 'package:flutter_1/pages/product_details.dart';
+>>>>>>> Stashed changes
 
 import '../api/api.dart';
 
